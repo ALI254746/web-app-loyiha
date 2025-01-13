@@ -1,16 +1,22 @@
 import express from "express";
-import path, { dirname } from 'path';
-import { fileURLToPath } from "url";
+// import path, { dirname } from 'path';
+// import { fileURLToPath } from "url";
 //handlebars devishogini imort qilib olamiz
-import {engine} from "express-handlebars";
+import {create} from "express-handlebars";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 const app = express();
 //bu buyruqlar orqali handlebarsni joylab olamiz
-  app.engine('handlebars',engine())
-  app.set('view engine','handlebars')
+//file nomini handlebars qilish qiyinchilik qiladi shuning uchun bu hbs ishini qilib ollamiz
+const hbs=create({
+    defaultLayout:'main',
+    extname:'hbs',
+
+})
+  app.engine('hbs',hbs.engine)
+  app.set('view engine','hbs')
   app.set('views','./views')
 
 //biz handlebars divishogidan foydalansak code miz oson o'qiladi 
