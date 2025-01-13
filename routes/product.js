@@ -5,16 +5,24 @@ const router=Router();
 
 router.get('/', (req, res) => {
 
-    res.render('index')
+    res.render('index',{
+      title:'Boom shoop |ali'
+    })
  });
  
  
  
  router.get("/product",(req,res)=>{
-    res.render('product')
+    res.render('product',{
+      title:'product |ali',
+      isProduct:true,
+    })
  });
  
  router.get("/add",(req,res)=>{
-    res.render('add')
+    res.render('add',{
+      title:'add |ali',
+      isAdd:true,
+    })
  })
  export default router;
