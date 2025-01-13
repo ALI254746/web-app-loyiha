@@ -12,4 +12,12 @@ router.get("/login",(req,res)=>{
       isRegister:true,
     })
  })
+ router.post('/login',(req,res)=>{
+   console.log(req.body)
+   res.redirect('/')
+ })
+ router.post('/register',(req,res)=>{
+   console.log(req.body)
+   res.redirect('/')
+ })
 export default router

@@ -1,1 +1,33 @@
-<h1>register</h1>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Registratsiya</h3>
+                    <form action="/register" method="post">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control shadow-sm" name="firstname" id="floatingFirstname" placeholder="Ali">
+                            <label for="floatingFirstname">First name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control shadow-sm" name="lastname" id="floatingLastname" placeholder="Valiyev">
+                            <label for="floatingLastname">Last name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control shadow-sm" name="email" id="floatingEmail" placeholder="name@example.com">
+                            <label for="floatingEmail">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control shadow-sm" name="password" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 shadow">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
