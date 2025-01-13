@@ -3,10 +3,13 @@
 {{!-- {{header}} --}}
 {{>head}}
 <body>
-    <h1>main page</h1>
-    <h2>bu pageda main page  o'zgarmaydi</h2>
-    <hr>
-    {{{body}}}
+    {{!-- navbar --}}
+    {{>navbar}}
+    
+    {{!-- {BODY} --}}
+    <div class="container">
+        {{{body}}}
+    </div>
 
     {{!--footer --}}
     {{>footer}}
