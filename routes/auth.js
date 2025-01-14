@@ -16,8 +16,19 @@ router.get("/login",(req,res)=>{
       isRegister:true,
     })
  })
- router.post('/login',(req,res)=>{
-   
+ router.post('/login', async(req,res)=>{
+   const existUser=await User.findOne({email:req.body.email})
+   if(!existUser) {
+    console.log("user topilmadi")
+    return false
+       }
+           
+
+    const isPassEqual=await bcrytp.compare(req.body.password,existUser.password);
+    if(!isPassEqual){
+     console.log("password xato")
+    return false;
+    }
    res.redirect('/')
  })
  router.post('/register',async (req,res)=>{
