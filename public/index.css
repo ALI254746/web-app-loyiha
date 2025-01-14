@@ -1,0 +1,65 @@
+/* Container */
+.container {
+    background-color: #f0f8ff; /* Light blue background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Header */
+header {
+    border-bottom: 3px solid #007bff; /* Blue border */
+}
+
+/* Navigation Links */
+nav a {
+    color: #007bff; /* Blue text */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: none;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Button Group */
+.btn-group .btn {
+    margin-right: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-group .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-group .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.btn-group .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-group .btn-success:hover {
+    background-color: #218838;
+    border-color: #218838;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* SVG Icon */
+svg {
+    fill: #007bff; /* Blue icon */
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+svg:hover {
+    fill: #0056b3; /* Darker blue on hover */
+    transform: rotate(10deg); /* Slight rotation on hover */
+}

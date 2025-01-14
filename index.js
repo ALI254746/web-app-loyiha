@@ -17,9 +17,11 @@ const hbs=create({
   app.set('view engine','hbs')
   app.set('views','./views')
 // input dagi name va pasword ni o'qidi 
+
   app.use(express.urlencoded({extended:true}));
- 
- 
+
+ //fileni static qilib inde.css file ulashimiz mumkun footerga ham shunday qilib index.js file qo'shak boladi
+ app.use(express.static('public'))
  
   app.use(AuthRoutes)
   app.use(ProductRoutes)
