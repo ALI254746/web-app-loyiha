@@ -2,8 +2,8 @@ import express from "express";
 import {create} from "express-handlebars";
 import mongoose, { trusted } from "mongoose";
 import * as dotenv from 'dotenv';
-
-
+import flash from 'connect-flash';
+import session from "express-session";
 
 //ROUTES
 import AuthRoutes from './routes/auth.js';
@@ -31,10 +31,17 @@ const hbs=create({
 
  //fileni static qilib inde.css file ulashimiz mumkun footerga ham shunday qilib index.js file qo'shak boladi
  app.use(express.static('public'))
- //
+ app.use(session({secret:'ali',resave:false,saveUninitialized:false}))
+  app.use(flash())
+ 
+ 
+ 
+ //midilware
+
  app.use(express.json())
   app.use(AuthRoutes)
   app.use(ProductRoutes)
+
  //bu pastdagi kod hozirgi versiyada ishlamaydi
   // mongoose.connect(process.env.MONGO_URL,{
   //   useNewUrlParser:true
