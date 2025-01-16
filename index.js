@@ -1,10 +1,11 @@
 import express from "express";
 import {create} from "express-handlebars";
-import mongoose, { trusted } from "mongoose";
+import mongoose from "mongoose";
 import * as dotenv from 'dotenv';
 import flash from 'connect-flash';
 import session from "express-session";
-
+import varMiddleware from './middleware/var.js'
+import cookieParser from "cookie-parser";
 //ROUTES
 import AuthRoutes from './routes/auth.js';
 import ProductRoutes from './routes/product.js';
@@ -28,17 +29,21 @@ const hbs=create({
 // input dagi name va pasword ni o'qidi 
 
   app.use(express.urlencoded({extended:true}));
-
+  app.use(express.json())
+  //local storge dagi cookie larni olamiz
+  app.use(cookieParser())
  //fileni static qilib inde.css file ulashimiz mumkun footerga ham shunday qilib index.js file qo'shak boladi
  app.use(express.static('public'))
  app.use(session({secret:'ali',resave:false,saveUninitialized:false}))
   app.use(flash())
+  //bu logout ni global qilish uchun shunda add va product da ham o'zgarmaydi
+  app.use(varMiddleware)
  
  
  
  //midilware
 
- app.use(express.json())
+ 
   app.use(AuthRoutes)
   app.use(ProductRoutes)
 

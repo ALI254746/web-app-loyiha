@@ -20,8 +20,21 @@
                 {{else}}
                 <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/add">Add</a>
                 {{/if}}
-
+                {{#if isauthenticated}}
+                 <form class="d-flex" action="/search" method="GET"></form>
+             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"> 
+             <button class="btn btn-outline-success" type="submit">Search</button> 
+             </form>
+                {{/if}}
+            
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    {{#if isauthenticated}}
+                    <button type="button" class="btn btn-danger active">
+                        <a class="text-light text-decoration-none" href="/logout">Logout</a>
+                    </button>
+                        
+                   
+                    {{else}}
                     {{#if isLogin}}
                     <button type="button" class="btn btn-primary active">
                         <a class="text-light text-decoration-none" href="/login">Login</a>
@@ -30,9 +43,9 @@
                     <button type="button" class="btn btn-primary">
                         <a class="text-light text-decoration-none" href="/login">Login</a>
                     </button>
-                    {{/if}}
 
-                    {{#if isRegister}}
+                    {{/if}}
+                     {{#if isRegister}}
                     <button type="button" class="btn btn-success active">
                         <a class="text-light text-decoration-none" href="/Register">Register</a>
                     </button>
@@ -40,10 +53,15 @@
                     <button type="button" class="btn btn-success">
                         <a class="text-light text-decoration-none" href="/Register">Register</a>
                     </button>
+                    
                     {{/if}}
+                    {{/if}}
+                    
                 </div>
             </nav>
         </div>
     </header>
 </div>
+
+
 

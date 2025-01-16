@@ -6,7 +6,8 @@ const router=Router();
 router.get('/', (req, res) => {
 
     res.render('index',{
-      title:'Boom shoop |ali'
+      title:'Boom shoop |ali',
+      token:true
     })
  });
  
