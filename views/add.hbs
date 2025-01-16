@@ -1,5 +1,22 @@
 <div class="w-75 mx-auto">
     <p class="fs-1">Mahsulot qo'shish</p>
+    {{# if erroraddProduct}}
+                   <div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-color: #e0f7fa; color: #006064; border-color: #b2ebf2; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: pulse 1.5s infinite;">
+    <strong>Xatolik!</strong> Quyidagi maydonlarni tekshirib ko'rishingiz kerak.
+    
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Yopish" style="color: #006064;"></button>
+</div>
+
+<style>
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 96, 100, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 96, 100, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 96, 100, 0); }
+}
+</style>
+
+                    {{!-- <p>{{LoginError}}</p> --}}
+                 {{/if}}
     <form action="/add-products" method="post">
         <div class="form-floating mb-3">       
             <input type="text" class="form-control shadow-sm" name="title" id="floatingInput" placeholder="Sarlavha">
