@@ -1,5 +1,28 @@
-
-    <h1>index pagee</h1>
-    <hr>
-    
-    
+{{#if products.length}}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        {{#each products}}
+        <div class="col">
+          <div class="card shadow-sm" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 255, 0.2), 0 6px 20px rgba(0, 0, 255, 0.19); border: 1px solid blue;">
+            <img src="{{image}}" class="card-img-top" alt="{{title}}" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+            <div class="card-body">
+              <h5 class="card-title fs-bold">{{title}}</h5>
+              <p class="card-text">{{description}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <p>{{createdAt}}</p>
+                <small class="text-muted fs-5">{{price}}.00 $</small>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-primary">Detail</button>
+                <button type="button" class="btn btn-outline-secondary">Edit</button>
+                <button type="button" class="btn btn-outline-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+{{else}}
+<p>Mahsulotlar mavjud emas</p>
+{{/if}}

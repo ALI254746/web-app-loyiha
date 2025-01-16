@@ -1,21 +1,24 @@
 import { Router } from "express";
-import product from '../models/product.js'
+import Product from '../models/product.js'
 import authmiddileware from '../middleware/auth.js'
 import usermiddelware from "../middleware/user.js";
+
 const router=Router();
 
 
-router.get('/', (req, res) => {
-
+router.get('/',async (req, res) => {
+const products = await Product.find().lean()
+console.log(products)
     res.render('index',{
       title:'Boom shoop |ali',
+      products:products,
       
     })
  });
  
  
  
- router.get("/products",(req,res)=>{
+ router.get("/product",(req,res)=>{
     res.render('product',{
       title:'product |ali',
       isProduct:true,
@@ -42,7 +45,7 @@ router.get('/', (req, res) => {
     return
   }
   
-  const products=await product.create({...req.body,user:req.userId})
+  const products=await Product.create({...req.body,user:req.userId})
   
   res.render('index')
  })

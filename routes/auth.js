@@ -5,7 +5,9 @@ import {generateJWTToken} from '../services/token.js'
 
 const router=Router();
 router.get("/login",(req,res)=>{
-    res.render("login",{
+    
+  
+  res.render("login",{
       title:'login |ali',
       isLogin:true,
       LoginError:req.flash('LoginError'),

@@ -9,5 +9,5 @@ const ProductSchema =new Schema({
 },{timestamps:true}
 )
 
-const Product=model('product',ProductSchema)
-export default Product ;
+const product=model('Product',ProductSchema)
+export default product ;
