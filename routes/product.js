@@ -26,4 +26,8 @@ router.get('/', (req, res) => {
       isAdd:true,
     })
  })
+ router.post('/add-products',(req,res)=>{
+  console.log(req.body)
+  res.render('/')
+ })
  export default router;

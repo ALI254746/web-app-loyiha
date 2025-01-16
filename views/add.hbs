@@ -1,1 +1,25 @@
-<h1>add</h1>
+<div class="w-75 mx-auto">
+    <p class="fs-1">Mahsulot qo'shish</p>
+    <form action="/add-products" method="post">
+        <div class="form-floating mb-3">       
+            <input type="text" class="form-control shadow-sm" name="title" id="floatingInput" placeholder="Sarlavha">
+            <label for="floatingInput">Sarlavha</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control shadow-sm" name="description" id="floatingTextarea" placeholder="Tavsif" rows="4"></textarea>
+            <label for="floatingTextarea">Tavsif</label>
+        </div>
+        <div class="form-floating mb-3"> 
+            <input type="file" class="form-control shadow-sm" name="image" id="floatingImage" placeholder="Rasm">
+             <label for="floatingImage">Rasm</label>
+              </div>
+              <div class="form-floating mb-3">
+                 <span class="input-group-text">$</span>
+                 <div class="form-floating">
+                    <input type="number" class="form-control shadow-sm" name="price" id="floatingPrice" placeholder="Narx">
+                  <label for="floatingPrice">Narx ($)</label>
+                 </div>
+                   </div>
+        <button type="submit" class="btn btn-primary w-100 shadow">Mahsulot qo'shish</button>
+    </form>
+</div>
