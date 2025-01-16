@@ -8,7 +8,7 @@ import varMiddleware from './middleware/var.js'
 import cookieParser from "cookie-parser";
 //ROUTES
 import AuthRoutes from './routes/auth.js';
-import ProductRoutes from './routes/product.js';
+import ProductRoutes from './routes/products.js';
 
 
 

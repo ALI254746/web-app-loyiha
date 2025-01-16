@@ -1,4 +1,5 @@
 import { Router } from "express";
+import product from '../models/product.js'
 
 const router=Router();
 
@@ -7,13 +8,13 @@ router.get('/', (req, res) => {
 
     res.render('index',{
       title:'Boom shoop |ali',
-      token:true
+      
     })
  });
  
  
  
- router.get("/product",(req,res)=>{
+ router.get("/products",(req,res)=>{
     res.render('product',{
       title:'product |ali',
       isProduct:true,
@@ -22,12 +23,14 @@ router.get('/', (req, res) => {
  
  router.get("/add",(req,res)=>{
     res.render('add',{
-      title:'add |ali',
+      title:'add-product||ali',
       isAdd:true,
     })
  })
- router.post('/add-products',(req,res)=>{
-  console.log(req.body)
-  res.render('/')
+ router.post('/add-products',async(req,res)=>{
+  const {title,description,image,price}=req.body
+  const products=await product.create(req.body)
+  console.log(products)
+  res.render('index')
  })
  export default router;
