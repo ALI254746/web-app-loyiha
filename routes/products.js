@@ -2,13 +2,14 @@ import { Router } from "express";
 import Product from '../models/product.js'
 import authmiddileware from '../middleware/auth.js'
 import usermiddelware from "../middleware/user.js";
+import { populate } from "dotenv";
 
 const router=Router();
 
 
 router.get('/',async (req, res) => {
 const products = await Product.find().lean()
-console.log(req.userId)
+
     res.render('index',{
       title:'Boom shoop |ali',
       products:products.reverse(),//yangi qo'shilganlar yuqorida turadi
@@ -18,10 +19,14 @@ console.log(req.userId)
  
  
  
- router.get("/product",(req,res)=>{
+ router.get("/product", async (req,res)=>{
+  const user=req.userId ? req.userId.toString() : null
+  const myProducts =await Product.find({user}).populate('user').lean()
+  
     res.render('product',{
       title:'product |ali',
       isProduct:true,
+      myProducts:myProducts,
     })
  });
  
