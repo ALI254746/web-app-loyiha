@@ -8,11 +8,11 @@ const router=Router();
 
 router.get('/',async (req, res) => {
 const products = await Product.find().lean()
-console.log(products)
+console.log(req.userId)
     res.render('index',{
       title:'Boom shoop |ali',
-      products:products,
-      
+      products:products.reverse(),//yangi qo'shilganlar yuqorida turadi
+      userId:req.userId ? req.userId.toString() : null,
     })
  });
  

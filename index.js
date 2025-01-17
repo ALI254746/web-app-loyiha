@@ -4,8 +4,12 @@ import mongoose from "mongoose";
 import * as dotenv from 'dotenv';
 import flash from 'connect-flash';
 import session from "express-session";
-import varMiddleware from './middleware/var.js'
 import cookieParser from "cookie-parser";
+
+import varMiddleware from './middleware/var.js'
+import   usermiddelware from './middleware/user.js'
+import hbsHelper from './utils/index.js'
+
 //ROUTES
 import AuthRoutes from './routes/auth.js';
 import ProductRoutes from './routes/products.js';
@@ -21,6 +25,7 @@ const app = express();
 const hbs=create({
     defaultLayout:'main',
     extname:'hbs',
+    helpers:hbsHelper,
 
 })
   app.engine('hbs',hbs.engine)
@@ -38,6 +43,8 @@ const hbs=create({
   app.use(flash())
   //bu logout ni global qilish uchun shunda add va product da ham o'zgarmaydi
   app.use(varMiddleware)
+  //userid orqali rasimlarni faqat o'zi qo'ygan odam edit yoki delete qilishi mumkun
+  app.use(usermiddelware)
  
  
  
